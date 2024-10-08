@@ -47,21 +47,28 @@ void verifica_grado_superiore_2(char* str) {
     }
 }
 
-void print_forma_ridotta(double a, double b, double c){
-    if (a == 0 && b == 0)
+void print_forma_ridotta(double a, double b, double c) {
+    //if (a < 0 && b < 0 && c < 0) {
+    //    a = -a;
+    //    b = -b;
+    //    c = -c;
+    //}
+    if (a == 0 && b == 0) {
         printf("Forma ridotta: %.2lf = 0\n\n", c);
-    else if (a == 0 && c == 0)
+    } else if (a == 0 && c == 0) {
         printf("Forma ridotta: %.2lf * X = 0\n\n", b);
-    else if (b == 0 && c == 0)
+    } else if (b == 0 && c == 0) {
         printf("Forma ridotta: %.2lf * X^2 = 0\n\n", a);
-    else if (a == 0)
-        printf("Forma ridotta: %.2lf * X + %.2lf = 0\n\n", b, c);
-    else if (b == 0)
-        printf("Forma ridotta: %.2lf * X^2 + %.2lf = 0\n\n", a, c);
-    else if (c == 0)
-        printf("Forma ridotta: %.2lf * X^2 + %.2lf * X = 0\n\n", a, b);
-    else
-        printf("Forma ridotta: %.2lf * X^2 + %.2lf * X + %.2lf = 0\n\n", a, b, c);
+    } else if (a == 0) {
+        printf("Forma ridotta: %.2lf * X %c %.2lf = 0\n\n", b, c < 0 ? '-' : '+', c < 0 ? -c : c);
+    } else if (b == 0) {
+        printf("Forma ridotta: %.2lf * X^2 %c %.2lf = 0\n\n", a, c < 0 ? '-' : '+', c < 0 ? -c : c);
+    } else if (c == 0) {
+        printf("Forma ridotta: %.2lf * X^2 %c %.2lf * X = 0\n\n", a, b < 0 ? '-' : '+', b < 0 ? -b : b);
+    } else {
+        printf("Forma ridotta: %.2lf * X^2 %c %.2lf * X %c %.2lf = 0\n\n", 
+               a, b < 0 ? '-' : '+', b < 0 ? -b : b, c < 0 ? '-' : '+', c < 0 ? -c : c);
+    }
 }
 
 void discriminante_quadrato(double a, double b, double c){
