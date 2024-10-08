@@ -14,7 +14,7 @@ typedef struct {
 double sqrt(double numero) {
     double approssimazione = numero / 2.0;
     double differenza = numero - approssimazione * approssimazione;
-    while (differenza > 0.00001) {
+    while (differenza * differenza > 0.00001 * 0.00001) {
         approssimazione = (approssimazione + numero / approssimazione) / 2.0;
         differenza = numero - approssimazione * approssimazione;
   }
