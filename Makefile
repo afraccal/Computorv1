@@ -13,7 +13,7 @@ RESET	= \033[0;0m
 
 OBJ		= $(SRC:.c=.o)
 
-$(OBJ): %.o: %.c
+%.o: %.c
 	@$(CC) $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
